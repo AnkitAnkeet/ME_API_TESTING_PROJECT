@@ -20,7 +20,8 @@ repositories {
 
 dependencies {
     // Use TestNG framework, also requires calling test.useTestNG() below
-        implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0'
+
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0'
     testImplementation group: 'org.testng', name: 'testng', version: '7.6.0'
 
     // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
@@ -36,9 +37,6 @@ dependencies {
     testImplementation 'io.rest-assured:rest-assured:5.2.0'
     testImplementation 'io.rest-assured:json-schema-validator:4.3.3'
     implementation 'org.json:json:20171018'
-
-
-
     
 }
 
@@ -51,6 +49,7 @@ application {
 test {
     useTestNG() {
         useDefaultListeners = true // generates the test report
+        suites 'src/test/java/qtriptest/testng.xml'
     }
      afterSuite { desc, result ->
             if (!desc.parent) {
